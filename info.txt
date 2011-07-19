@@ -1,0 +1,12 @@
+title: Store files on disk
+desc: This module takes care of storing file data (attachments, personal user files) on disk instead of using the database as the file storage.
+author: Thomas Seifert and Maurice Makaay
+version: 1.1.1
+url: http://www.phorum-support.de/
+require_version: 5.2.12
+category: admin
+
+hook: file_store|phorum_mod_store_files_on_disk_store
+hook: file_retrieve|phorum_mod_store_files_on_disk_retrieve
+hook: file_delete|phorum_mod_store_files_on_disk_delete
+

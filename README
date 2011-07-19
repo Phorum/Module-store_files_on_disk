@@ -1,0 +1,54 @@
+Module  : Store files on disk
+Version : 1.1.1
+Authors : Thomas Seifert
+          Maurice Makaay
+
+This module takes care of storing file data (attachments, personal user
+files) on disk instead of using the database as the file storage.
+
+This is an advanced module for users that have a problem with storing
+files in the database. Don't just do this because you read on a blog
+somewhere that putting files in a database is bad.
+
+For running this mod, you need Phorum 5.2.0 or later. It will not
+work for earlier versions of Phorum.
+
+
+Installation:
+-------------
+
+- Unpack the archive;
+
+- Move the directory "store_files_on_disk" to the directory "mods"
+  within your Phorum installation;
+
+- Login as administrator in Phorum's administrative interface and
+  go to the "Modules" section;
+
+- Go to the settings screen for the module. On the settings screen,
+  configure the directory that you want to use for storing the Phorum
+  files. The webserver must be allowed to write to this directory.
+
+- After editing the settings, go back the the "Modules" section and
+  enable the module "Store files on disk".
+
+
+Converting files that are already stored in the database:
+---------------------------------------------------------
+
+This module contains an on-the-fly conversion mechanism, which will convert
+files that are stored in the database to disk storage, right at the moment
+that they are requested. This mechanism will gradually convert the available
+files to the disk storage.
+
+If you want to forcibly convert all available files to file storage,
+then you can use the conversion script console_convert.php that you
+can find in the module directory. This script's intended use it to
+run it from the system command prompt, using the PHP interpreter. Example:
+
+  $ php console_convert.php
+
+  Converting database file storage to disk based storage ...
+  converting 19 / 19  [====================] (100%)
+
+

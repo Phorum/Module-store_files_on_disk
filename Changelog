@@ -1,0 +1,54 @@
+Changelog:
+----------
+
+2010-04-23 1.1.1
+
+    - Changed the file path generation code to use gmstrftime() instead
+		  of strftime(). Because strftime() dependens on the server timezone,
+			changing the server timezone resulted in changed file storage path
+			and broken file downloads as result.
+
+      Files will be automatically converted to the new storage path on
+      access. It is possible to use the console_convert.php script
+			(which is a command line script) to speed up this process.
+
+			Note:
+		  The automatic conversion from the 1.1.0 release will also
+			be performed, so you can upgrade directly to this release when
+			coming from a pre-1.1.0 version.
+
+2009-07-10 1.1.0
+
+    - Modified the path that is used for storing files on disk. Before this
+      version, we used a deep hashing tree, based on the MD5 sum of the
+      file_id. This provided perfect distribution of the files, however it
+      has made several hosting providers crazy, because their backup systems
+      could not cope with the file tree traversal.
+      Additionally, some Phorum owners would like to purge old stored files
+      once in a while. The hashing mechanism is not ideal for doing this,
+      because old and new files will be intermixed in the directories.
+
+      The old storage path looked like:
+      /path/to/store/XXX/XXX/XXX/XXX/XXX/XXX/XXX/XXX/XXX/XXX/<file_id>
+      (where the X-es are determined by the file_id's MD5 sum)
+
+      The new storage path looks like:
+      /path/to/store/YYYY/MMDD/HH/<file_id>
+
+      Files will be automatically converted to the new storage path on
+      access. It is possible to use the console_convert.php script
+      (which is a command line script) to speed up this process.
+
+      Note that this change required some changes in the Phorum core
+      as well. This means that Phorum needs to be upgraded to at least
+      version 5.2.12 to be able to use version 1.1.0 of this module.
+
+2007-09-24 1.0.1
+
+    - Implemented more robust file writing to prevent file data loss
+      on storage problems.
+
+2007-09-15 1.0.0
+
+    - Initial release.
+
