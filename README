@@ -1,10 +1,9 @@
-Module  : Store files on disk
-Version : 1.1.1
+Module  : @TITLE@
+Version : @VERSION@
 Authors : Thomas Seifert
           Maurice Makaay
 
-This module takes care of storing file data (attachments, personal user
-files) on disk instead of using the database as the file storage.
+@DESCRIPTION@
 
 This is an advanced module for users that have a problem with storing
 files in the database. Don't just do this because you read on a blog
@@ -19,7 +18,7 @@ Installation:
 
 - Unpack the archive;
 
-- Move the directory "store_files_on_disk" to the directory "mods"
+- Move the directory "@MODULE_ID@" to the directory "mods"
   within your Phorum installation;
 
 - Login as administrator in Phorum's administrative interface and
@@ -30,7 +29,7 @@ Installation:
   files. The webserver must be allowed to write to this directory.
 
 - After editing the settings, go back the the "Modules" section and
-  enable the module "Store files on disk".
+  enable the module "@TITLE@".
 
 
 Converting files that are already stored in the database:
